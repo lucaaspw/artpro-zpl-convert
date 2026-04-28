@@ -21,6 +21,14 @@ type Props = {
   refreshNonce?: number;
 };
 
+function buildDownloadFilename(createdAt: string): string {
+  const date = new Date(createdAt);
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = String(date.getFullYear());
+  return `artpro-zpl-etiquetas-${day}-${month}-${year}.pdf`;
+}
+
 export function ConversionHistory({ refreshNonce = 0 }: Props) {
   const [data, setData] = useState<Conversion[]>([]);
   const [page, setPage] = useState(1);
@@ -80,7 +88,7 @@ export function ConversionHistory({ refreshNonce = 0 }: Props) {
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = `${row.original_filename.replace(/\.[^.]+$/, "")}.pdf`;
+      link.download = buildDownloadFilename(row.created_at);
       link.click();
       URL.revokeObjectURL(url);
     } catch (error) {

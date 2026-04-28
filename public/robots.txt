@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.artprodecor.com.br
+
+# Sitemaps
+Sitemap: https://www.artprodecor.com.br/sitemap.xml

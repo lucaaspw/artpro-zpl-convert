@@ -40,7 +40,7 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (status === "authenticated") {
-      router.replace("/app");
+      router.replace("/converter");
     }
   }, [router, status]);
 
@@ -57,7 +57,7 @@ export default function LoginPage() {
           <Button
             className="w-full"
             size="lg"
-            onClick={() => signIn("google", { callbackUrl: "/app" })}
+            onClick={() => signIn("google", { callbackUrl: "/converter" })}
           >
             Continuar com Google
           </Button>

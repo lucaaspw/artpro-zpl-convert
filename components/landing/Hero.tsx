@@ -10,7 +10,7 @@ export function Hero() {
   const router = useRouter();
 
   function handleStart() {
-    router.push(session?.user ? "/app" : "/login");
+    router.push(session?.user ? "/converter" : "/login");
   }
 
   return (

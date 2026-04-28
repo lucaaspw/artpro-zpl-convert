@@ -19,8 +19,8 @@ export function Header() {
         <div className="flex items-center gap-2">
           {session?.user ? (
             <>
-              <Link href="/app">
-                <Button variant="ghost">App</Button>
+              <Link href="/converter">
+                <Button variant="ghost">Converter</Button>
               </Link>
               <Link href="/profile">
                 <Button variant="ghost">Perfil</Button>

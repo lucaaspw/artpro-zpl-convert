@@ -49,10 +49,10 @@ export function DropZone({
 
   return (
     <div
-      className={`rounded-xl border border-dashed p-6 text-center transition-all ${
+      className={`rounded-2xl border border-dashed p-6 text-center transition-all ${
         isDragging
-          ? "border-primary bg-primary/10 shadow-[0_0_30px_rgba(108,99,255,0.2)]"
-          : "border-border bg-card/70"
+          ? "border-primary bg-primary/10 shadow-[0_0_36px_rgba(108,99,255,0.25)]"
+          : "border-border/90 bg-card/70 hover:border-primary/40 hover:bg-card"
       }`}
       onDragOver={(event) => {
         event.preventDefault();
@@ -74,11 +74,11 @@ export function DropZone({
         onChange={(event) => handleFiles(event.target.files)}
       />
 
-      <div className="mx-auto mb-3 flex size-12 items-center justify-center rounded-full bg-primary/20">
+      <div className="mx-auto mb-3 flex size-12 items-center justify-center rounded-full border border-primary/30 bg-primary/20">
         <UploadCloud className="size-6 text-primary" />
       </div>
-      <p className="text-sm text-foreground">Arraste seus arquivos aqui</p>
-      <p className="mb-4 text-xs text-muted-foreground">.zpl • .txt • .zip</p>
+      <p className="text-sm font-medium text-foreground">Arraste seus arquivos aqui</p>
+      <p className="mb-4 text-xs text-muted-foreground">Formatos aceitos: .zpl, .txt e .zip (max. 10MB)</p>
       <Button variant="outline" onClick={() => inputRef.current?.click()}>
         Selecionar Arquivos
       </Button>

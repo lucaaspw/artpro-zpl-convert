@@ -21,15 +21,15 @@ export function FileQueue({
   if (!files.length) return null;
 
   return (
-    <Card className="border border-border bg-card/70">
+    <Card className="border border-border/80 bg-card/70 backdrop-blur-sm">
       <CardHeader>
-        <CardTitle className="text-sm">Fila de arquivos</CardTitle>
+        <CardTitle className="text-sm">Fila de arquivos ({files.length})</CardTitle>
       </CardHeader>
       <CardContent className="space-y-2 text-sm">
         {files.map((item, index) => (
           <div
             key={`${item.file.name}-${index}`}
-            className="flex items-center justify-between rounded-lg border border-border bg-background/40 px-3 py-2"
+            className="flex items-center justify-between rounded-xl border border-border/80 bg-background/45 px-3 py-2 transition-colors hover:bg-background/70"
           >
             <div className="min-w-0">
               <p className="truncate text-foreground">{item.file.name}</p>

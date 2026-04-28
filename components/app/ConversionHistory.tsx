@@ -91,10 +91,12 @@ export function ConversionHistory({ refreshNonce = 0 }: Props) {
   const totalPages = Math.max(1, Math.ceil(total / 10));
 
   return (
-    <Card className="border border-border bg-card/70">
+    <Card className="border border-border/80 bg-card/70 backdrop-blur-sm">
       <CardHeader className="flex flex-row items-center justify-between space-y-0">
-        <CardTitle>Historico de Conversoes</CardTitle>
-        <p className="text-xs text-muted-foreground">Total: {total} registros</p>
+        <CardTitle className="text-base">Historico de Conversoes</CardTitle>
+        <p className="rounded-md border border-border bg-background/40 px-2 py-1 text-xs text-muted-foreground">
+          Total: {total}
+        </p>
       </CardHeader>
       <CardContent className="space-y-4">
         <Table>

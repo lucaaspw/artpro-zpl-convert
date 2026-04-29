@@ -23,7 +23,7 @@ export function Hero() {
       <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
         <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/70 px-3 py-1 text-xs text-muted-foreground backdrop-blur-sm">
           <Sparkles className="size-3.5 text-secondary" />
-          Ferramenta rapida para visualizar etiquetas sem dor de cabeca
+          Ferramenta rápida para visualizar etiquetas sem dor de cabeça
         </div>
 
         <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
@@ -37,7 +37,7 @@ export function Hero() {
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Button size="lg" onClick={handleStart}>
-            Comecar gratuitamente
+            Começar gratuitamente
             <ArrowRight className="size-4" />
           </Button>
           <Button size="lg" variant="outline" onClick={handleStart}>
@@ -48,11 +48,11 @@ export function Hero() {
         <div className="mt-8 grid w-full max-w-2xl grid-cols-1 gap-2 text-left sm:grid-cols-3">
           <div className="rounded-xl border border-border bg-card/60 p-3 text-xs text-muted-foreground">
             <Timer className="mb-2 size-4 text-primary" />
-            Processamento rapido e previsivel
+            Processamento rápido e previsível
           </div>
           <div className="rounded-xl border border-border bg-card/60 p-3 text-xs text-muted-foreground">
             <ShieldCheck className="mb-2 size-4 text-primary" />
-            Fluxo simples para operacao diaria
+            Fluxo simples para operação diária
           </div>
           <div className="rounded-xl border border-border bg-card/60 p-3 text-xs text-muted-foreground">
             <Sparkles className="mb-2 size-4 text-primary" />

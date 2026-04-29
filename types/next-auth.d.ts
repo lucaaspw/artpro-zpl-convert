@@ -13,7 +13,7 @@ declare module "next-auth" {
 
 declare module "next-auth/jwt" {
   interface JWT extends DefaultJWT {
-    /** Google `sub` / providerAccountId — persiste no JWT para resolver o usuario em refresh. */
+    /** Google `sub` / providerAccountId — persiste no JWT para resolver o usuário em refresh. */
     googleProviderAccountId?: string;
   }
 }

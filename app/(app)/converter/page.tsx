@@ -47,15 +47,15 @@ export default function AppPage() {
 
       if (!response.ok) {
         const error = (await response.json()) as { error?: string };
-        throw new Error(error.error ?? "Falha ao converter arquivo.");
+        throw new Error(error.error ?? "Falha ao converter o arquivo.");
       }
 
       setProgress(100);
-      toast.success("Conversao concluida com sucesso!");
+      toast.success("Conversão concluída com sucesso!");
       setFiles([]);
       setHistoryRefreshNonce((n) => n + 1);
     } catch (error) {
-      toast.error(error instanceof Error ? error.message : "Erro na conversao.");
+      toast.error(error instanceof Error ? error.message : "Erro na conversão.");
     } finally {
       setTimeout(() => setProgress(0), 600);
       setConverting(false);
@@ -72,11 +72,11 @@ export default function AppPage() {
             <div>
               <p className="mb-2 inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-3 py-1 text-xs text-muted-foreground">
                 <Sparkles className="size-3.5 text-secondary" />
-                Painel de conversao
+                Painel de conversão
               </p>
               <h1 className="text-2xl font-semibold sm:text-3xl">Transforme ZPL em PDF com 1 clique</h1>
               <p className="mt-2 text-sm text-muted-foreground">
-                Envie seus arquivos, acompanhe o progresso e mantenha seu historico sempre acessivel.
+                Envie seus arquivos, acompanhe o progresso e mantenha seu histórico sempre acessível.
               </p>
             </div>
             <div className="rounded-xl border border-border bg-background/50 px-4 py-3 text-sm">

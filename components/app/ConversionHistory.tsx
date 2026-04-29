@@ -17,7 +17,7 @@ import { StatusBadge } from "@/components/app/StatusBadge";
 import type { Conversion, ConversionsListResponse } from "@/types";
 
 type Props = {
-  /** Incremente apos uma conversao terminar no pai para recarregar a lista sem F5. */
+  /** Incremente após uma conversão terminar no pai para recarregar a lista sem F5. */
   refreshNonce?: number;
 };
 
@@ -46,7 +46,7 @@ export function ConversionHistory({ refreshNonce = 0 }: Props) {
       const response = await fetch(`/api/conversions?page=${targetPage}&limit=10`, {
         cache: "no-store",
       });
-      if (!response.ok) throw new Error("Falha ao carregar historico.");
+      if (!response.ok) throw new Error("Falha ao carregar histórico.");
       const json: ConversionsListResponse = await response.json();
       setData(json.data);
       setTotal(json.total);
@@ -71,8 +71,8 @@ export function ConversionHistory({ refreshNonce = 0 }: Props) {
   async function handleDelete(id: string) {
     try {
       const response = await fetch(`/api/conversions/${id}`, { method: "DELETE" });
-      if (!response.ok) throw new Error("Falha ao deletar conversao.");
-      toast.success("Conversao removida.");
+      if (!response.ok) throw new Error("Falha ao excluir conversão.");
+      toast.success("Conversão removida.");
       await load(page);
     } catch (error) {
       toast.error(error instanceof Error ? error.message : "Erro ao deletar.");
@@ -101,7 +101,7 @@ export function ConversionHistory({ refreshNonce = 0 }: Props) {
   return (
     <Card className="border border-border/80 bg-card/70 backdrop-blur-sm">
       <CardHeader className="flex flex-row items-center justify-between space-y-0">
-        <CardTitle className="text-base">Historico de Conversoes</CardTitle>
+        <CardTitle className="text-base">Histórico de conversões</CardTitle>
         <p className="rounded-md border border-border bg-background/40 px-2 py-1 text-xs text-muted-foreground">
           Total: {total}
         </p>
@@ -114,7 +114,7 @@ export function ConversionHistory({ refreshNonce = 0 }: Props) {
               <TableHead>Arquivo</TableHead>
               <TableHead>Etq</TableHead>
               <TableHead>Status</TableHead>
-              <TableHead className="text-right">Acoes</TableHead>
+              <TableHead className="text-right">Ações</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -127,7 +127,7 @@ export function ConversionHistory({ refreshNonce = 0 }: Props) {
             ) : data.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={5} className="text-center text-muted-foreground">
-                  Nenhuma conversao encontrada.
+                  Nenhuma conversão encontrada.
                 </TableCell>
               </TableRow>
             ) : (

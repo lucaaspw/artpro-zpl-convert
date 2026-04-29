@@ -1,9 +1,9 @@
 const ALLOWED_DPMM = new Set(["6dpmm", "8dpmm", "12dpmm", "24dpmm"]);
 
 /**
- * Densidade do Labelary na URL da API. Valores maiores mudam o "tamanho logico" do render e podem
- * desalinhar da folha 4x6. Padrao **8dpmm** (comum em ZPL de transportadoras); nitidez extra vem do
- * pos-processamento PNG (`LABELARY_RASTER_SUPER_SAMPLE` etc.).
+ * Densidade do Labelary na URL da API. Valores maiores mudam o "tamanho lógico" do render e podem
+ * desalinhar da folha 4x6. Padrão **8dpmm** (comum em ZPL de transportadoras); nitidez extra vem do
+ * pós-processamento PNG (`LABELARY_RASTER_SUPER_SAMPLE` etc.).
  *
  * Env: LABELARY_RENDER_DPMM=8dpmm | 12dpmm | 24dpmm | 6dpmm
  */
@@ -50,7 +50,7 @@ export function buildLabelaryPdfUrl(): string {
   return `${base}/v1/printers/${dpmm}/labels/${width}x${height}/`;
 }
 
-/** URL com indice da etiqueta (0..n-1) — necessario para PNG; PDF multi-etiqueta omite o indice. */
+/** URL com índice da etiqueta (0..n-1) — necessário para PNG; PDF multi-etiqueta omite o índice. */
 export function buildLabelaryPngUrl(labelIndex: number): string {
   const base = resolveLabelaryApiBase();
   const dpmm = resolveLabelaryDpmm();
@@ -58,7 +58,7 @@ export function buildLabelaryPngUrl(labelIndex: number): string {
   return `${base}/v1/printers/${dpmm}/labels/${width}x${height}/${labelIndex}/`;
 }
 
-/** Tamanho da pagina do PDF em pontos (1 pol = 72 pt), alinhado ao tamanho configurado no Labelary. */
+/** Tamanho da página do PDF em pontos (1 pol = 72 pt), alinhado ao tamanho configurado no Labelary. */
 export function labelSizeToPdfPoints(): { widthPt: number; heightPt: number } {
   const { width, height } = resolveLabelSizeInches();
   const w = Number.parseFloat(width);
@@ -67,8 +67,8 @@ export function labelSizeToPdfPoints(): { widthPt: number; heightPt: number } {
 }
 
 /**
- * raster (padrao): PNG por etiqueta esticado na folha inteira — melhor preenchimento visual.
- * vector: PDF direto do Labelary — mais rapido, mas o desenho pode nao ocupar toda a area.
+ * raster (padrão): PNG por etiqueta esticado na folha inteira — melhor preenchimento visual.
+ * vector: PDF direto do Labelary — mais rápido, mas o desenho pode não ocupar toda a área.
  */
 export function resolveLabelaryPdfPipeline(): "raster" | "vector" {
   const raw = process.env.LABELARY_PDF_PIPELINE?.trim().toLowerCase() ?? "";
@@ -90,7 +90,7 @@ export function resolveRasterEnhanceEnabled(): boolean {
 
 /**
  * Multiplica largura/altura do PNG (8dpmm) antes de embutir no PDF — o viewer imprime o mesmo
- * tamanho fisico com mais pixels (supersampling). Padrao 2. Use 1 para desligar upscale.
+ * tamanho físico com mais pixels (supersampling). Padrão 2. Use 1 para desligar upscale.
  */
 export function resolveRasterSuperSampleScale(): number {
   const raw = Number(process.env.LABELARY_RASTER_SUPER_SAMPLE);
@@ -98,7 +98,7 @@ export function resolveRasterSuperSampleScale(): number {
   return Math.min(4, Math.floor(raw));
 }
 
-/** Sigma do sharpen LAB (sharp). 0 = sem sharpen. Padrao 1 se a env nao existir. */
+/** Sigma do sharpen LAB (sharp). 0 = sem sharpen. Padrão 1 se a env não existir. */
 export function resolveRasterSharpenSigma(): number {
   const raw = process.env.LABELARY_RASTER_SHARPEN_SIGMA?.trim();
   if (raw === undefined || raw === "") return 1;

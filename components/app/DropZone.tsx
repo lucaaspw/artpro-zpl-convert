@@ -29,7 +29,7 @@ export function DropZone({
     for (const file of Array.from(filesList)) {
       const ext = extension(file.name);
       if (!ACCEPTED.includes(ext)) {
-        toast.error(`Formato invalido: ${file.name}`);
+        toast.error(`Formato inválido: ${file.name}`);
         continue;
       }
       if (file.size > MAX_BYTES) {

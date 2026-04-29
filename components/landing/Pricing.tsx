@@ -13,7 +13,7 @@ export function Pricing() {
           Gratuito para sempre, com apoio opcional da comunidade
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
-          Se o ZPL Convert te ajuda no dia a dia, uma contribuicao por PIX ajuda a manter a ferramenta evoluindo.
+          Se o ZPL Convert te ajuda no dia a dia, uma contribuição por PIX ajuda a manter a ferramenta evoluindo.
         </p>
       </div>
       <div className="mx-auto max-w-xl">

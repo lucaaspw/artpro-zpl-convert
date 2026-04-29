@@ -45,7 +45,7 @@ export default async function ProfilePage() {
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <Card className="border border-border bg-card/70">
             <CardHeader>
-              <CardTitle className="text-base">Conversoes</CardTitle>
+              <CardTitle className="text-base">Conversões</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-3xl font-semibold">{totalConversions}</p>
@@ -66,7 +66,7 @@ export default async function ProfilePage() {
             <CardTitle className="text-base">Zona de risco</CardTitle>
           </CardHeader>
           <CardContent>
-            <Button variant="destructive">Deletar minha conta</Button>
+            <Button variant="destructive">Excluir minha conta</Button>
           </CardContent>
         </Card>
       </main>

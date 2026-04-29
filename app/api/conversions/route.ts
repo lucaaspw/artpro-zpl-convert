@@ -32,7 +32,7 @@ export async function GET(request: Request) {
       .range(from, to);
 
     if (error) {
-      throw new Error(`Erro ao buscar conversoes: ${error.message}`);
+      throw new Error(`Erro ao buscar conversões: ${error.message}`);
     }
 
     return Response.json({

@@ -8,13 +8,13 @@ const features = [
     icon: Upload,
   },
   {
-    title: "Conversao Instantanea",
-    description: "Processamento rapido para gerar PDFs em segundos.",
+    title: "Conversão instantânea",
+    description: "Processamento rápido para gerar PDFs em segundos.",
     icon: Zap,
   },
   {
-    title: "Historico Completo",
-    description: "Acesse e gerencie todas as conversoes anteriores.",
+    title: "Histórico completo",
+    description: "Acesse e gerencie todas as conversões anteriores.",
     icon: History,
   },
 ];
@@ -23,8 +23,8 @@ export function Features() {
   return (
     <section className="py-10">
       <div className="mb-6 flex items-center justify-between gap-3">
-        <h2 className="text-2xl font-semibold sm:text-3xl">Feito para acelerar sua operacao</h2>
-        <span className="hidden text-xs text-muted-foreground sm:inline">Do upload ao PDF sem friccao</span>
+        <h2 className="text-2xl font-semibold sm:text-3xl">Feito para acelerar sua operação</h2>
+        <span className="hidden text-xs text-muted-foreground sm:inline">Do upload ao PDF sem fricção</span>
       </div>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">

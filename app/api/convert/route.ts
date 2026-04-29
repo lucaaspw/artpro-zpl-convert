@@ -21,13 +21,13 @@ export async function POST(request: Request) {
     const file = formData.get("file");
 
     if (!(file instanceof File)) {
-      return Response.json({ error: "Arquivo nao enviado." }, { status: 400 });
+      return Response.json({ error: "Arquivo não enviado." }, { status: 400 });
     }
 
     const extension = extensionOf(file.name);
     if (!ACCEPTED_EXTENSIONS.includes(extension)) {
       return Response.json(
-        { error: "Formato invalido. Envie .zpl, .txt ou .zip." },
+        { error: "Formato inválido. Envie .zpl, .txt ou .zip." },
         { status: 400 },
       );
     }
@@ -50,7 +50,7 @@ export async function POST(request: Request) {
       .single();
 
     if (createError || !created) {
-      throw new Error(`Erro ao criar conversao: ${createError?.message ?? "desconhecido"}`);
+      throw new Error(`Erro ao criar conversão: ${createError?.message ?? "desconhecido"}`);
     }
 
     const startedAt = Date.now();
@@ -58,7 +58,7 @@ export async function POST(request: Request) {
     const { zplContents } = await parseInputFile(file.name, fileBuffer);
 
     if (!zplContents.length) {
-      throw new Error("Nao foi encontrado conteudo ZPL no arquivo enviado.");
+      throw new Error("Não foi encontrado conteúdo ZPL no arquivo enviado.");
     }
 
     const { pdf: pdfBuffer, pageCount } = await convertZplToPdfBuffer(zplContents);
@@ -98,7 +98,7 @@ export async function POST(request: Request) {
       .eq("user_id", userId);
 
     if (updateError) {
-      throw new Error(`Erro ao atualizar conversao: ${updateError.message}`);
+      throw new Error(`Erro ao atualizar conversão: ${updateError.message}`);
     }
 
     return Response.json({

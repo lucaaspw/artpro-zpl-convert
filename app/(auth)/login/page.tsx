@@ -14,18 +14,18 @@ function LoginErrorMessage() {
 
   const messages: Record<string, string> = {
     AccessDenied:
-      "Acesso negado. Se isso aparecia apos o Google, tente de novo: o login nao deve mais bloquear por erro no banco.",
+      "Acesso negado. Se isso aparecia após o Google, tente de novo: o login não deve mais bloquear por erro no banco.",
     OAuthSignin:
       "Falha ao iniciar login com Google. Verifique Client ID/Secret e URL de callback no Google Cloud.",
     OAuthCallback:
       "Falha no retorno do Google. Confira se a URI de redirecionamento esta correta no console Google.",
     OAuthAccountNotLinked:
-      "Esta conta ja esta vinculada a outro metodo de login.",
+      "Esta conta já está vinculada a outro método de login.",
     Configuration:
-      "Erro de configuracao do servidor (ex.: NEXTAUTH_SECRET ou variaveis OAuth).",
+      "Erro de configuração do servidor (ex.: NEXTAUTH_SECRET ou variáveis OAuth).",
   };
 
-  const text = messages[error] ?? `Erro de autenticacao: ${error}`;
+  const text = messages[error] ?? `Erro de autenticação: ${error}`;
 
   return (
     <p className="rounded-lg border border-destructive/40 bg-destructive/10 px-3 py-2 text-center text-xs text-destructive">
@@ -62,7 +62,7 @@ export default function LoginPage() {
             Continuar com Google
           </Button>
           <p className="text-center text-xs text-muted-foreground">
-            Gratuito. Sem cartao de credito.
+            Gratuito. Sem cartão de crédito.
           </p>
         </CardContent>
       </Card>

@@ -21,11 +21,11 @@ export async function DELETE(
       .maybeSingle();
 
     if (findError) {
-      throw new Error(`Erro ao consultar conversao: ${findError.message}`);
+      throw new Error(`Erro ao consultar conversão: ${findError.message}`);
     }
 
     if (!conversion) {
-      return Response.json({ error: "Conversao nao encontrada." }, { status: 404 });
+      return Response.json({ error: "Conversão não encontrada." }, { status: 404 });
     }
 
     if (conversion.pdf_url) {
@@ -51,7 +51,7 @@ export async function DELETE(
       .eq("user_id", userId);
 
     if (deleteError) {
-      throw new Error(`Erro ao deletar conversao: ${deleteError.message}`);
+      throw new Error(`Erro ao excluir conversão: ${deleteError.message}`);
     }
 
     return Response.json({ success: true });

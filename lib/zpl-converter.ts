@@ -15,7 +15,7 @@ interface ParsedZplResult {
 
 export interface ConvertPdfResult {
   pdf: Buffer;
-  /** Total de paginas / etiquetas no PDF final. */
+  /** Total de páginas / etiquetas no PDF final. */
   pageCount: number;
 }
 
@@ -61,7 +61,7 @@ export async function parseInputFile(
     return { zplContents };
   }
 
-  throw new Error("Formato invalido. Envie .zpl, .txt ou .zip.");
+  throw new Error("Formato inválido. Envie .zpl, .txt ou .zip.");
 }
 
 function sleep(ms: number): Promise<void> {
@@ -120,7 +120,7 @@ async function callLabelaryPngAtIndexWithRetry(
   return { ok: true, buffer: Buffer.from(await response.arrayBuffer()) };
 }
 
-/** Busca PNG da etiqueta 0, 1, ... ate 404 (fim do lote ZPL). */
+/** Busca PNG da etiqueta 0, 1, ... até 404 (fim do lote ZPL). */
 async function fetchPngPagesForZpl(zpl: string): Promise<Buffer[]> {
   const gap = labelaryRequestGapMs();
   const pngs: Buffer[] = [];
@@ -133,7 +133,7 @@ async function fetchPngPagesForZpl(zpl: string): Promise<Buffer[]> {
       if (result.notFound) {
         if (i === 0) {
           throw new Error(
-            "Labelary nao gerou etiquetas (ZPL vazio ou invalido, ou indice 0 inexistente).",
+            "Labelary não gerou etiquetas (ZPL vazio ou inválido, ou índice 0 inexistente).",
           );
         }
         break;
@@ -150,7 +150,7 @@ async function fetchPngPagesForZpl(zpl: string): Promise<Buffer[]> {
   return pngs;
 }
 
-/** Cada PNG e desenhado ocupando 100% da pagina em pontos (preenche a folha). */
+/** Cada PNG é desenhado ocupando 100% da página em pontos (preenche a folha). */
 async function buildPdfFromPngPages(pngBuffers: Buffer[]): Promise<Buffer> {
   const { widthPt, heightPt } = labelSizeToPdfPoints();
   const pdf = await PDFDocument.create();
@@ -208,12 +208,12 @@ async function convertZplToPdfBufferVector(zplContents: string[]): Promise<Conve
 }
 
 /**
- * Converte ZPL em PDF: varias etiquetas por arquivo, varios arquivos no zip.
- * Padrao: pipeline raster (PNG esticado na folha = preenchimento total).
+ * Converte ZPL em PDF: várias etiquetas por arquivo, vários arquivos no zip.
+ * Padrão: pipeline raster (PNG esticado na folha = preenchimento total).
  */
 export async function convertZplToPdfBuffer(zplContents: string[]): Promise<ConvertPdfResult> {
   if (!zplContents.length) {
-    throw new Error("Nenhum conteudo ZPL foi encontrado para conversao.");
+    throw new Error("Nenhum conteúdo ZPL foi encontrado para conversão.");
   }
 
   if (resolveLabelaryPdfPipeline() === "vector") {

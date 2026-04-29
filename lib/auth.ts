@@ -20,7 +20,7 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     /**
      * Nunca retorne false aqui por falha no Supabase: isso vira "Acesso negado" no NextAuth
-     * mesmo depois do Google ter autenticado. Persistimos o usuario no callback jwt.
+     * mesmo depois do Google ter autenticado. Persistimos o usuário no callback jwt.
      */
     async signIn({ user, account }) {
       if (!user.email) {
@@ -42,7 +42,7 @@ export const authOptions: NextAuthOptions = {
         const normalizedEmail = rawEmail.trim().toLowerCase();
         const supabase = createSupabaseServerClient();
 
-        // Primeiro login nesta sessao: persiste usuario e ja fixa token.sub com o UUID do banco.
+        // Primeiro login nesta sessão: persiste usuário e já fixa token.sub com o UUID do banco.
         if (
           user &&
           account?.provider === "google" &&
@@ -66,7 +66,7 @@ export const authOptions: NextAuthOptions = {
 
           if (upsertError) {
             console.error(
-              "Erro ao salvar usuario no Supabase (verifique tabela users, UNIQUE em google_id e env):",
+              "Erro ao salvar usuário no Supabase (verifique tabela users, UNIQUE em google_id e env):",
               upsertError,
             );
           } else if (upserted?.id) {
@@ -89,7 +89,7 @@ export const authOptions: NextAuthOptions = {
           .maybeSingle();
 
         if (emailError) {
-          console.error("Erro ao resolver id do usuario no JWT (email):", emailError);
+          console.error("Erro ao resolver id do usuário no JWT (email):", emailError);
           return token;
         }
 
@@ -103,7 +103,7 @@ export const authOptions: NextAuthOptions = {
             .maybeSingle();
 
           if (googleError) {
-            console.error("Erro ao resolver id do usuario no JWT (google_id):", googleError);
+            console.error("Erro ao resolver id do usuário no JWT (google_id):", googleError);
             return token;
           }
           dbUserId = byGoogle?.id;
@@ -128,7 +128,7 @@ export const authOptions: NextAuthOptions = {
 
         return session;
       } catch (error) {
-        console.error("Erro ao montar sessao:", error);
+        console.error("Erro ao montar sessão:", error);
         return session;
       }
     },

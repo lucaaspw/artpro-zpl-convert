@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/dialog";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-/** Codigo PIX copia e cola (EMV) — mesmo payload do QR em /qrcode.svg */
+/** Código PIX (cópia e cola, EMV) — mesmo payload do QR em /qrcode.svg */
 const PIX_COPIA_COLA =
   "00020126580014BR.GOV.BCB.PIX01365c49711a-6500-47a9-a807-1744881f7b4a5204000053039865802BR5924Lucas da Cunha Goncalves6009SAO PAULO62140510rv43M8gOpW630434A7";
 
@@ -25,9 +25,9 @@ export function SupportBanner({ compact = false }: { compact?: boolean }) {
   async function handleCopyPix() {
     try {
       await navigator.clipboard.writeText(PIX_COPIA_COLA);
-      toast.success("Codigo PIX copiado!");
+      toast.success("Código PIX copiado!");
     } catch {
-      toast.error("Nao foi possivel copiar o codigo PIX.");
+      toast.error("Não foi possível copiar o código PIX.");
     }
   }
 
@@ -42,7 +42,7 @@ export function SupportBanner({ compact = false }: { compact?: boolean }) {
         </CardHeader>
         <CardContent className="space-y-3 text-sm text-muted-foreground">
           <p>
-            O ArtPro ZPL é gratuito. Se quiser, voce pode apoiar o projeto via
+            O ArtPro ZPL é gratuito. Se quiser, você pode apoiar o projeto via
             PIX.
           </p>
           <Dialog open={open} onOpenChange={setOpen}>
@@ -60,8 +60,8 @@ export function SupportBanner({ compact = false }: { compact?: boolean }) {
               <DialogHeader>
                 <DialogTitle>Apoie via PIX</DialogTitle>
                 <DialogDescription>
-                  Escaneie o QR Code no app do seu banco ou copie o codigo
-                  abaixo em Pix copia e cola.
+                  Escaneie o QR Code no app do seu banco ou copie o código
+                  abaixo em PIX cópia e cola.
                 </DialogDescription>
               </DialogHeader>
               <div className="space-y-4">
@@ -77,7 +77,7 @@ export function SupportBanner({ compact = false }: { compact?: boolean }) {
                 </div>
                 <div className="space-y-2 rounded-lg border border-border bg-background/50 p-3">
                   <p className="text-xs font-medium text-muted-foreground">
-                    Pix copia e cola
+                    PIX cópia e cola
                   </p>
                   <p className="max-h-24 overflow-y-auto break-all font-mono text-[10px] leading-relaxed text-foreground">
                     {PIX_COPIA_COLA}
@@ -89,7 +89,7 @@ export function SupportBanner({ compact = false }: { compact?: boolean }) {
                     onClick={handleCopyPix}
                   >
                     <Copy className="size-3.5" />
-                    Copiar codigo
+                    Copiar código
                   </Button>
                 </div>
               </div>

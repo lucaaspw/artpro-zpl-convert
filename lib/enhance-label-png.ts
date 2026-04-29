@@ -5,7 +5,7 @@ import {
   resolveRasterSuperSampleScale,
 } from "@/lib/labelary-config";
 
-/** Evita PNG gigante na memoria apos super-sample. */
+/** Evita PNG gigante na memória após super-sample. */
 const MAX_EDGE_PX = 4000;
 
 /**
